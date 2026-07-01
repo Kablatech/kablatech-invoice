@@ -3,8 +3,8 @@ import LOGO from '../assets/logo.js'
 
 // ── Credentials (change these to whatever you want) ──────────────────────────
 const USERS = [
-  { username: 'admin',    password: 'Kablatech@2025', role: 'Admin'    },
-  { username: 'kablatech', password: 'Invoice@2025',  role: 'Staff'    },
+  { username: 'kablat',    password: 'Om.,LA3902', role: 'Admin'    },
+  { username: 'kablatech', password: 'zeemZAH3902',  role: 'Staff'    },
 ]
 // ─────────────────────────────────────────────────────────────────────────────
 
