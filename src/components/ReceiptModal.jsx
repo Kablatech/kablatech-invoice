@@ -5,9 +5,9 @@ const fmt = (n) => '₦' + Number(n||0).toLocaleString('en-NG',{minimumFractionD
 const methodLabel = {transfer:'Bank Transfer',cash:'Cash',cheque:'Cheque',pos:'POS Terminal',ussd:'USSD'}
 
 // ── EmailJS config — fill these in from emailjs.com ─────────────────────────
-const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID'
-const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID'
-const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY'
+const EMAILJS_SERVICE_ID  = 'service_oebdptc'
+const EMAILJS_TEMPLATE_ID = 'template_q6xbyq4'
+const EMAILJS_PUBLIC_KEY  = 'vMhbEoJs0Pyy_qywl'
 // ─────────────────────────────────────────────────────────────────────────────
 
 export default function ReceiptModal({ invoice, payment, onClose }) {
