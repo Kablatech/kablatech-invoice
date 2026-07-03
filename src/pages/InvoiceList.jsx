@@ -34,7 +34,7 @@ export default function InvoiceList({ invoices, onNew, onEdit, onDelete, onPrevi
     paid:    invoices.filter(i=>i.status==='paid').length,
     overdue: invoices.filter(i=>i.status==='overdue').length,
   }
-  const totalRevenue     = invoices.filter(i=>i.status==='paid').reduce((s,i)=>s+(i.grandTotal||0),0)
+  const totalRevenue     = invoices.reduce((s,i)=>(i.payments||[]).reduce((a,p)=>a+p.amount,0)+s, 0)
   const totalOutstanding = invoices.filter(i=>['sent','overdue'].includes(i.status)).reduce((s,i)=>{
     const paid=(i.payments||[]).reduce((a,p)=>a+p.amount,0)
     return s+Math.max(0,(i.grandTotal||0)-paid)
@@ -66,7 +66,7 @@ export default function InvoiceList({ invoices, onNew, onEdit, onDelete, onPrevi
       {/* Stats */}
       <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(180px,1fr))',gap:14,marginBottom:'2rem'}}>
         <StatCard label="Total invoices"    value={invoices.length}        sub="all time" />
-        <StatCard label="Revenue collected" value={fmt(totalRevenue)}      sub="fully paid" accent />
+        <StatCard label="Revenue collected" value={fmt(totalRevenue)}      sub="all payments received" accent />
         <StatCard label="Outstanding"       value={fmt(totalOutstanding)}  sub="pending payment" warn />
         <StatCard label="Overdue"           value={totals.overdue}         sub="action needed" danger={totals.overdue>0} />
       </div>
